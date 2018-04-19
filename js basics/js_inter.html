@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JS Math</title>
+	<script type="text/javascript">
+
+        // Math 1
+        // Create a function called starString() that takes a number and returns a string of that many *. For example:
+		function starString(n){
+            var starstr = "";
+            for (var i = 0; i < n; i++){
+                starstr += "*";
+            };
+            return starstr;
+        }
+        let stars = starString(8)
+        console.log(stars);
+        
+        // Math 2
+        // Create a function called drawStars() that takes an array of numbers and prints out *.
+		function drawStars(arr){
+            var new_arr =[];
+            for (var index = 0; index < arr.length; index++){
+                t = arr[index];
+                z = starString(t);
+                new_arr[index] = z;
+            };
+            return new_arr;
+        }
+        let x = [4, 6, 1, 3, 5, 7, 25];
+        console.log(drawStars(x));
+
+/*      Math 3
+        Modify the function above. Allow an array containing integers and strings to be passed to the drawStars() function. 
+        When a string is passed, instead of displaying *, display the first letter of 
+        the string according to the example below. You may use the .toLowerCase() string method for this part. */
+        function drawStars(arr){
+            var new_arr =[];
+            for (var index = 0; index < arr.length; index++){
+                if (typeof arr[index] === "number"){
+                    t = arr[index];
+                    z = starString(t);
+                    new_arr[index] = z;
+                } else {
+                    var count = 0;
+                    var total = "";
+                    var string = arr[index];
+                    console.log(string.length);
+                    var char = arr[index].charAt(0);
+                    char = char.toLowerCase();
+                    while (count < string.length){
+                        total += char
+                        count++;
+                    }
+                    new_arr[index] = total;
+                }
+            };
+            return new_arr;
+        }
+let x = [4, "Tom", 1, "Michael", 5, 7, "Jimmy Smith"];
+console.log(drawStars(x));
+
+	</script>
+</head>
+<body>
+
+</body>
+</html>
