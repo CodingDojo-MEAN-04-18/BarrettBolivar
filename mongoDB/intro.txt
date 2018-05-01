@@ -1,0 +1,61 @@
+1. 
+use my_first_db
+
+2.
+db.createCollection("students")
+
+4. 
+db.students.insert({name: "Ross", home_state:"Louisiana", lucky_number:5, birthday: {month:7, day:15, year:1984}})
+db.students.insert({name: "Barrett", home_state:"Ohio", lucky_number:7, birthday: {month:11, day:10, year:1950}})
+db.students.insert({name: "John", home_state:"California", lucky_number:10, birthday: {month:3, day:25, year:1973}})
+db.students.insert({name: "Thor", home_state:"Idaho", lucky_number:15, birthday: {month:6, day:30, year:1987}})
+db.students.insert({name: "That One Guy", home_state:"Vermont", lucky_number:2, birthday: {month:4, day:11, year:1991}})
+
+5.
+db.students.find()
+
+6. 
+db.students.find({$or: [{home_state:"California"}, {home_state:"Washington"}]})
+
+7. 
+db.students.find({lucky_number:{$gt:3}})
+db.students.find({lucky_number:{$lte:10}})
+db.students.find({$and:[{lucky_number:{$lte:9}}, {lucky_number:{$gte:1}}]})
+
+8. 
+db.students.update({},{$set: {"interests":['coding', 'brunch', 'MongoDB']}},{multi:true})
+
+9.
+db.students.update({name: "Ross"},{$push: {interests:{$each:['running', 'jumping']}}})
+db.students.update({name: "Barrett"},{$push: {interests:{$each:['surfing', 'frolicking']}}})
+db.students.update({name: "Thor"},{$push: {interests:{$each:['being oblivious', 'throwing hammers']}}})
+	
+10. 
+db.students.update({name: "John"},{$push: {interests: "taxes"}})
+
+11.
+db.students.update({name: "John"},{$pull: {interests: "taxes"}})
+
+12.
+db.students.remove({$or: [{home_state:"California"}, {home_state:"Washington"}]})
+
+13. 
+db.students.remove({name:"That One Guy"})
+
+14. 
+db.students.remove({lucky_number: {$gt:5}}, {justOne:true})
+
+15. 
+db.students.update({},{$set: {"number_of_belts":0}},{multi:true})
+
+16. 
+db.students.update({home_state: "Washington"},{$inc: {number_of_belts: 1}},{multi:true})
+
+17. 
+db.students.update({}, {$rename: {"number_of_belts":"belts_earned"}})
+
+18.
+db.students.update({}, {$unset:{lucky_number:""}},{multi:true})
+
+19.
+db.students.update({}, {$currentDate:{updated_on:true}},{multi:true})
