@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Show</title>
+</head>
+<body>
+    <h1>Displaying individual animal information.</h1>
+    <p>Name: <%= animal.Animal %></p>
+    <p>Weight: <%= animal.Data %></p>
+    <a href="/">Home</a>
+    <a href="/<%= animal._id %>/edit">Edit</a>
+    <form action="/<%= animal._id %>/delete/" method='post'>
+      <input type="submit" value="Delete">
+    </form>
+</body>
+</html>

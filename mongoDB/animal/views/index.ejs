@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Quoting Dojo</title>
+</head>
+<body>
+    <% for (const oneAnimal of animal) { %>
+        <h3>Animal: <%= oneAnimal.Animal %></h3>
+        <p>Data: <%= oneAnimal.Data %></p>
+        <a href="/<%= oneAnimal._id %>">Show/Edit/Destroy</a>
+    <% } %>
+    <br>
+    <a href="animal/new">Create a new animal!</a>
+</body>
+</html>
