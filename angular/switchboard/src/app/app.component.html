@@ -1,0 +1,6 @@
+<h1>Switchboard</h1>
+<div *ngFor='let switch of switches; let idx = index'>
+  <button (click)="onButtonClick(switch, idx)" [ngClass]="{ 'green': color[idx] === true, 'red': color[idx] === false }">
+    {{ switch }}
+  </button>
+</div>
