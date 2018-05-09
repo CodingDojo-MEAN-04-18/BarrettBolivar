@@ -1,0 +1,9 @@
+<h1>US Time Zone Display</h1>
+
+<button (click)="onButtonClick(1)" [ngClass]="{ yellow: buttonId === 1 }">PST</button>
+<button (click)="onButtonClick(2)" [ngClass]="{ yellow: buttonId === 2 }">MST</button>
+<button (click)="onButtonClick(3)" [ngClass]="{ yellow: buttonId === 3 }">CST</button>
+<button (click)="onButtonClick(4)" [ngClass]="{ yellow: buttonId === 4 }">EST</button>
+<button (click)="onButtonClick()">Clear</button>
+
+<span *ngIf='clicked'>{{ date | date:'medium' }}</span>
