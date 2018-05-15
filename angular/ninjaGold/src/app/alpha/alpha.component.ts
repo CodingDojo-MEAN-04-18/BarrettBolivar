@@ -11,6 +11,8 @@ export class AlphaComponent implements OnInit {
   constructor(private _goldService: GoldService) {}
 
   ngOnInit() {
-    this.gold = this._goldService.initializeGold();
+    this._goldService.totalGold.subscribe(
+      (gold) => { this.gold = gold; }
+    )
   }
 }
