@@ -1,21 +1,16 @@
 <h3>Create a New Product</h3>
-<div class="labels">
-  <label for="">Title:</label>
-  <label for="">Price:</label>
-  <label for="">Image Url:</label>
-</div>
-<div class="inputs">
+<div>
   <form (submit)="create()" #formData="ngForm">
 
-    <input type="text" name="name" 
+    <input type="text" name="name" placeholder="name"
     required 
     [(ngModel)]="newProduct.name">
 
-    <input type="number" name="price" 
+    <input type="number" name="price" placeholder="price"
     required 
     [(ngModel)]="newProduct.price">
 
-    <input type="text" name="img" 
+    <input type="text" name="img" placeholder="img url"
     [(ngModel)]="newProduct.img">
 
     <input type="submit" 
