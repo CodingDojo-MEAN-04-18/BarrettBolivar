@@ -1,0 +1,11 @@
+<h3>>Products List </h3>
+  <div *ngFor="let product of products">
+    <fieldset>
+    <img *ngIf="product.img" [src]="product.img">
+    <h3 *ngIf="!product.img">No Image Available.</h3>
+    <h3>{{product.name}}</h3>
+    <h3>{{product.price | currency:US:true }}</h3>
+    <button class="edit" [routerLink]="['/products', 'edit', product.id]">EDIT</button>
+    <button class="delete" (click)="deleteProduct(product)">DELETE</button>
+    </fieldset>
+  </div>
