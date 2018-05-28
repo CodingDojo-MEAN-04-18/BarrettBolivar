@@ -1,0 +1,19 @@
+<fieldset>
+  <form (submit)="onSubmit($event, form)" #form="ngForm">
+    Note: <input type="text" name="note" 
+    required
+    minlength="3"
+    [(ngModel)]="note.text"
+    #ntext="ngModel"
+    />
+    <div *ngIf="ntext.valid">
+      <input type="submit" value="Add a Quote" />
+    </div>
+    <p *ngIf="!ntext.valid" style="color:red">Quote must be 3 letters</p>
+  </form>
+</fieldset>
+<div *ngFor='let text of note'>
+  <fieldset>
+    {{ text }}
+  </fieldset>
+</div>
