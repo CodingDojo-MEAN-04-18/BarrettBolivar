@@ -1,0 +1,22 @@
+<a [routerLink]="['']">Manage Players</a>
+<a [routerLink]="['status', 'game', '1']">Manage Player Status</a>
+<fieldset>
+  <a [routerLink]="['status', 'game', '1']">Game 1</a>
+  <a [routerLink]="['status', 'game', '2']">Game 2</a>
+  <a [routerLink]="['status', 'game', '3']">Game 3</a>
+  <table>
+    <thead>
+      <tr></tr>
+        <td>Team Name</td>
+        <td>Actions</td>
+    </thead>
+    <tbody>
+      <tr *ngFor='let player of players'>
+        <td>{{player}}</td>
+        <td><input type='button' value='Playing' (onSubmit)='deletePlayer'>
+            <input type='button' value='Not Playing' (onSubmit)='deletePlayer'>
+            <input type='button' value='Undecided' (onSubmit)='deletePlayer'></td>
+      </tr> 
+    </tbody>
+  </table>
+</fieldset>

@@ -1,0 +1,22 @@
+<a [routerLink]="['']">Manage Players</a>
+<a [routerLink]="['status', 'game', '1']">Manage Player Status</a>
+<fieldset>
+<a href=''>Manage Player Status</a>
+<a href=''>Add player</a>
+<form (submit)="onSubmit(playerForm)" #playerForm='ngForm'>
+  <label for='name'>Full Name of Player:</label>
+  <input 
+  type='text' 
+  name='name' 
+  placeholder="Full Name" 
+  [(ngModel)]="player.name"
+  #name='ngModel'
+  required 
+  minlength="2" 
+  >
+  <span *ngIf="name.invalid">Player name must be at least 2 characters long.</span><br>
+  <label for='position'>Preferred Position of the Player:</label>
+  <input type='text' name='position' placeholder="position" [(ngModel)]="player.position">
+  <input *ngIf="!name.invalid" type='submit'>
+</form>
+</fieldset>
